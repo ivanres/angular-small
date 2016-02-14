@@ -27,16 +27,8 @@ app.controller('MainCtrl', function($scope){
 
 });
 
-app.controller('UserIndexCtrl', function($scope){
-	// $scope.names = ['Delia', 'Leika', 'Balandra']
-
-	$scope.users = [
-		{ id: 1, name: "Betsy", age:73},
-		{ id: 2, name: 'Normal', age: 40},
-		{ id: 3, name: 'Sonja', age: 6}
-
-	];
-
+app.controller('UserIndexCtrl', function($scope, User){
+	$scope.users = User.all();
 	$scope.addPerson = function(){
 		// console.log($scope.newPerson);
 		$scope.users.push($scope.newPerson);
@@ -46,7 +38,42 @@ app.controller('UserIndexCtrl', function($scope){
 });
 
 
-app.controller('UserShowCtrl', function($stateParams){
-	console.log($stateParams.user_id);
+app.controller('UserShowCtrl', function($scope, $stateParams,  User){
+	$scope.user = User.get($stateParams.user_id); 
+	//console.log();
+
+});
+
+app.factory('User', function(){
+
+	var users = [
+		{ id: 1, name: "Betsy", age:73},
+		{ id: 2, name: 'Norman', age: 40},
+		{ id: 3, name: 'Sonja', age: 6}
+
+	];
+
+	return {
+
+		all: function(){
+			return users;
+		},
+
+		remove: function(user){
+			users.splice(users.indexOf(user), 1);
+		},
+
+		get: function(user_id){
+			for(var i in users){
+				if(users[i].id == parseInt(user_id))
+					return users[i];
+			}
+			return null;
+		}
+
+
+
+
+	}
 
 });
