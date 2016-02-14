@@ -8,10 +8,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
   //
   // Now set up the states
   $stateProvider
-    .state('people-index', {
+    .state('users-index', {
       url: "/",
-      templateUrl: "templates/people-index.html",
-      controller: 'PeopleIndexCtrl'
+      templateUrl: "templates/users-index.html",
+      controller: 'UserIndexCtrl'
     })
 
     ;
@@ -23,10 +23,10 @@ app.controller('MainCtrl', function($scope){
 
 });
 
-app.controller('PeopleIndexCtrl', function($scope){
+app.controller('UserIndexCtrl', function($scope){
 	// $scope.names = ['Delia', 'Leika', 'Balandra']
 
-	$scope.people = [
+	$scope.users = [
 		{name: "Betsy", age:73},
 		{name: 'Normal', age: 40},
 		{name: 'Sonja', age: 6}
@@ -35,7 +35,7 @@ app.controller('PeopleIndexCtrl', function($scope){
 
 	$scope.addPerson = function(){
 		// console.log($scope.newPerson);
-		$scope.people.push($scope.newPerson);
+		$scope.users.push($scope.newPerson);
 		$scope.newPerson = {}
 	}
 
