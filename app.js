@@ -10,6 +10,12 @@ app.controller('MainCtrl', function($scope){
 		{name: 'Normal', age: 40},
 		{name: 'Sonja', age: 6}
 
-	]
+	];
+
+	$scope.addPerson = function(){
+		// console.log($scope.newPerson);
+		$scope.people.push($scope.newPerson);
+		$scope.newPerson = {}
+	}
 
 })
