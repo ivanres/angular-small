@@ -1,4 +1,4 @@
-<h1>users</h1>
+<h1>Users</h1>
 
 	<form ng-submit="addPerson()">
 	<div class="form-group">
@@ -18,7 +18,8 @@
 		<li ng-repeat="user in users"
 			ng-show="user.age>18"
 			>
-		{{user.name}} is {{user.age}} old</li>
+		<a ui-sref="user-show({user_id: user.id})">
+		{{user.name}}</a> is {{user.age}} old</li>
 	</ul>
 
 	<h1>Minors</h1>
@@ -26,7 +27,8 @@
 		<li ng-repeat="user in users"
 			ng-show="user.age<18"
 			>
-		{{user.name}} is {{user.age}} old</li>
+			<a ui-sref="user-show({user_id: user.id})">
+		{{user.name}}</a> is {{user.age}} old</li>
 	</ul>
 
 <!-- 	<ul>

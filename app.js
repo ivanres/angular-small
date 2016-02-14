@@ -13,7 +13,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/users-index.html",
       controller: 'UserIndexCtrl'
     })
-
+	.state('user-show', {
+      url: "/users/:user_id",
+      templateUrl: "templates/user-show.html",
+      controller: 'UserShowCtrl'
+    })
     ;
 
 });
@@ -27,9 +31,9 @@ app.controller('UserIndexCtrl', function($scope){
 	// $scope.names = ['Delia', 'Leika', 'Balandra']
 
 	$scope.users = [
-		{name: "Betsy", age:73},
-		{name: 'Normal', age: 40},
-		{name: 'Sonja', age: 6}
+		{ id: 1, name: "Betsy", age:73},
+		{ id: 2, name: 'Normal', age: 40},
+		{ id: 3, name: 'Sonja', age: 6}
 
 	];
 
@@ -38,5 +42,11 @@ app.controller('UserIndexCtrl', function($scope){
 		$scope.users.push($scope.newPerson);
 		$scope.newPerson = {}
 	}
+
+});
+
+
+app.controller('UserShowCtrl', function($stateParams){
+	console.log($stateParams.user_id);
 
 });
