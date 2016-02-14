@@ -1,3 +1,6 @@
 <a ui-sref="users-index">Back</a>
 <br/>
-{{user.name}}
+<h1>{{user.name}}</h1>
+<img alt="" ng-repeat="gif in gifs"
+ng-src="{{gif.images.fixed_height_small.url}}" 
+>
